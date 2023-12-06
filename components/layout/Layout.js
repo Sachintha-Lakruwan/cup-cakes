@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "../footer/Footer";
 import MainNavigation from "../navbar/MainNavigation";
 import { Lato } from "next/font/google";
@@ -7,12 +8,15 @@ const lato = Lato({
 });
 
 function Layout({ children }) {
+  const [navBar, setNavBar] = useState(false);
   return (
     <div
       className={`w-full min-h-screen grid grid-rows-[auto_1fr_auto] ${lato.className}`}
     >
-      <MainNavigation />
-      <main className="bg-gray-200">{children}</main>
+      <MainNavigation navBar={navBar} setNavBar={setNavBar} />
+      <main className="bg-gray-200" onClick={() => setNavBar(false)}>
+        {children}
+      </main>
       <Footer />
     </div>
   );
