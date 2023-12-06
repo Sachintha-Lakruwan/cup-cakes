@@ -19,14 +19,14 @@ function MainNavigation({ navBar, setNavBar }) {
     ["#4ade80", "#facc15"]
   );
   return (
-    <div className=" h-[8vh] sticky top-0 left-0 z-50 shadow-lg bg-white flex justify-center overflow-hidden">
+    <div className=" h-[8vh] sticky top-0 left-0 z-50 shadow-lg bg-white flex justify-center">
       <motion.div
         style={{
           scaleX: scaleX,
           transformOrigin: "left",
           background: bacground,
         }}
-        className=" w-full h-1 absolute bottom-0"
+        className=" w-full h-1 absolute bottom-0 rounded-r-full"
       ></motion.div>
       <div className=" flex justify-between items-center w-5/6 sm:w-3/5 lg:w-3/4">
         <Logo />
