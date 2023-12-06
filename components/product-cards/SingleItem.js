@@ -16,7 +16,7 @@ function SingleItem({ product }) {
   return (
     <div
       onClick={viewItem}
-      className=" cursor-pointer w-full  aspect-[3/4] bg-white transition delay-75 duration-300 ease-in-out shadow-lg hover:shadow-2xl "
+      className=" select-none cursor-pointer w-full  aspect-[3/4] bg-white transition delay-75 duration-300 ease-in-out shadow-lg hover:shadow-2xl "
     >
       <div className="w-full  h-full relative overflow-hidden">
         <Image

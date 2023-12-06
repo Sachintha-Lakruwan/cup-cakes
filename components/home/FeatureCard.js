@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 function FeatureCard({ index }) {
-  console.log(index);
   return (
     <motion.div
       initial={{ x: -150, opacity: 0, rotate: "4deg" }}
