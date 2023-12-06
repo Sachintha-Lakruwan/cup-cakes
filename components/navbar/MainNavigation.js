@@ -1,7 +1,8 @@
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Logo from "./Logo";
+import { motion, AnimatePresence } from "framer-motion";
 
 function MainNavigation({ navBar, setNavBar }) {
   return (
@@ -9,27 +10,38 @@ function MainNavigation({ navBar, setNavBar }) {
       <div className=" flex justify-between items-center w-5/6 sm:w-3/5 lg:w-3/4">
         <Logo />
         <div className="lg:hidden" onClick={() => setNavBar((prev) => !prev)}>
-          <MenuRoundedIcon className=" scale-[1.5]" />
+          <MenuRoundedIcon
+            className={`scale-[1.5] ${
+              navBar && "rotate-180"
+            } transition-all ease-in-out duration-300`}
+          />
         </div>
-        {navBar && (
-          <div className=" w-5/6 absolute top-[8dvh] bg-white flex flex-col gap-4 rounded-b-md items-center py-9 text-xl shadow-xl sm:w-3/5 lg:hidden">
-            <div>Shop</div>
-            <hr className="w-5/6"></hr>
-            <div>Categories</div>
-            <hr className="w-5/6"></hr>
-            <AccountCircleRoundedIcon className="scale-125" />
-            <hr className="w-5/6"></hr>
+        <AnimatePresence>
+          {navBar && (
+            <motion.div
+              className=" w-5/6 absolute top-[9vh] bg-white flex flex-col gap-4 rounded-md items-center py-9 text-xl shadow-xl sm:w-3/5 lg:hidden"
+              initial={{ opacity: 0, y: -150 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -150 }}
+            >
+              <div>Shop</div>
+              <hr className="w-5/6"></hr>
+              <div>Categories</div>
+              <hr className="w-5/6"></hr>
+              <PersonOutlineRoundedIcon className="scale-125" />
+              <hr className="w-5/6"></hr>
 
-            <ShoppingCartRoundedIcon className="scale-125" />
-          </div>
-        )}
+              <ShoppingCartOutlinedIcon className="scale-125" />
+            </motion.div>
+          )}
+        </AnimatePresence>
         <div className="hidden text-lg lg:flex lg:gap-11 tracking-wider">
           <div>Shop</div>
           <div>Categories</div>
         </div>
         <div className="hidden lg:flex gap-11">
-          <AccountCircleRoundedIcon className="scale-125" />
-          <ShoppingCartRoundedIcon className="scale-125" />
+          <PersonOutlineRoundedIcon className="scale-125" />
+          <ShoppingCartOutlinedIcon className="scale-125" />
         </div>
       </div>
     </div>
