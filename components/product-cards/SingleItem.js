@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 function SingleItem({ product }) {
   const router = useRouter();
@@ -27,12 +28,18 @@ function SingleItem({ product }) {
           className="transition delay-75 duration-300 ease-in-out hover:scale-[1.15]"
         />
         <div className="h-full">
-          <button
+          <motion.button
             onClick={addToCart}
-            className=" w-1/6 aspect-square absolute right-5 top-5 rounded-full flex justify-center items-center bg-white shadow-lg overflow-hidden"
+            className=" w-1/6 aspect-square absolute right-5 top-5 rounded-full flex justify-center items-center bg-white shadow-lg overflow-hidden text-gray-800"
+            whileTap={{
+              scale: 0.8,
+              color: "#fff",
+              backgroundColor: "#22c55e",
+            }}
+            whileHover={{ scale: 1.2 }}
           >
-            <AddShoppingCartRoundedIcon className=" scale-150 lg:scale-100" />
-          </button>
+            <AddShoppingCartRoundedIcon className=" scale-150 lg:scale-100 " />
+          </motion.button>
 
           <div className="relative top-2/3 z-10 h-1/3 flex flex-col justify-end px-7 py-4 bg-gradient-to-t from-gray-900 text-gray-200 lg:px-3 lg:py-2">
             <div className=" font-bold ">{product.price}</div>
