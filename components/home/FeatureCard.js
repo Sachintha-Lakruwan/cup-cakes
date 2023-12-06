@@ -9,7 +9,7 @@ function FeatureCard({ index }) {
       transition={{ delay: index * 0.2, type: "spring", damping: 7 }}
       className="w-full h-full"
     >
-      <div className="bg-white rounded-md w-full h-[14dvh] shadow-md transition-all delay-75 duration-300 ease-in-out hover:shadow-xl lg:h-[16dvh]"></div>
+      <div className="bg-white rounded-md w-full h-[14vh] shadow-md transition-all delay-75 duration-300 ease-in-out hover:shadow-xl lg:h-[16vh]"></div>
     </motion.div>
   );
 }

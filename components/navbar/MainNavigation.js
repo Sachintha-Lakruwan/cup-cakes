@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 function MainNavigation({ navBar, setNavBar }) {
   return (
-    <div className=" h-[8dvh] sticky top-0 left-0 z-50 shadow-lg bg-white flex justify-center">
+    <div className=" h-[8vh] sticky top-0 left-0 z-50 shadow-lg bg-white flex justify-center">
       <div className=" flex justify-between items-center w-5/6 sm:w-3/5 lg:w-3/4">
         <Logo />
         <div className="lg:hidden" onClick={() => setNavBar((prev) => !prev)}>
