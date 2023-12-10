@@ -16,7 +16,7 @@ function SingleItem({ product }) {
   return (
     <div
       onClick={viewItem}
-      className=" select-none cursor-pointer w-full  aspect-[3/4] bg-white transition delay-75 duration-300 ease-in-out shadow-lg hover:shadow-2xl "
+      className=" select-none cursor-pointer w-full  aspect-[3/4] bg-white transition delay-75 duration-300 ease-in-out "
     >
       <div className="w-full  h-full relative overflow-hidden">
         <Image
@@ -25,7 +25,6 @@ function SingleItem({ product }) {
           fill
           sizes="100vw"
           style={{ objectFit: "cover" }}
-          className="transition delay-75 duration-300 ease-in-out hover:scale-[1.15]"
         />
         <div className="h-full">
           <motion.button
