@@ -13,7 +13,7 @@ function Poster() {
         <div className="hidden w-[49%] aspect-[4/5] gradient lg:inline-block">
           <Text />
         </div>
-        <div className="w-full relative aspect-[4/5] lg:w-[49%]">
+        <div className="w-full relative aspect-[3/4] lg:aspect-[4/5] lg:w-[49%]">
           <Image
             src={"/customised_cake.jpg"}
             alt={"customised cake"}
