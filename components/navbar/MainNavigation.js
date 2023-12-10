@@ -51,6 +51,8 @@ function MainNavigation({ navBar, setNavBar }) {
               <hr className="w-5/6"></hr>
               <div>Categories</div>
               <hr className="w-5/6"></hr>
+              <div>Custom Cake</div>
+              <hr className="w-5/6"></hr>
               <PersonOutlineRoundedIcon className="scale-125" />
               <hr className="w-5/6"></hr>
 
@@ -61,6 +63,7 @@ function MainNavigation({ navBar, setNavBar }) {
         <div className="hidden text-lg lg:flex lg:gap-11 tracking-wider">
           <div>Shop</div>
           <div>Categories</div>
+          <div>Custom Cake</div>
         </div>
         <div className="hidden lg:flex gap-11">
           <PersonOutlineRoundedIcon className="scale-125" />

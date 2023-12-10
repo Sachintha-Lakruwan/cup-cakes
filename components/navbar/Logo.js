@@ -5,7 +5,7 @@ const poppins = Poppins({
 });
 
 function Logo() {
-  return <div className={`text-xl ${poppins.className}`}>CakeCraft</div>;
+  return <div className={`text-xl ${poppins.className}`}>Cake Craft</div>;
 }
 
 export default Logo;

@@ -4,6 +4,7 @@ import Poster from "@/components/home/Poster";
 import TrendingHeading from "@/components/home/TrendingHeading";
 import ItemGrid from "@/components/product-cards/ItemGrid";
 import { cupCakeData } from "@/public/cup-cake-data";
+import { cakeData } from "@/public/cake-data";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <Poster />
         <div className=" flex flex-col items-center  w-5/6 sm:w-3/5 lg:w-3/4">
           <TrendingHeading category={"Cakes"} link={"cakes"} />
-          <ItemGrid products={cupCakeData} />
+          <ItemGrid products={cakeData} />
         </div>
       </div>
     </div>

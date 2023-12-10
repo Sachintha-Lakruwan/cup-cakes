@@ -16,14 +16,14 @@ function SingleItem({ product }) {
   return (
     <div
       onClick={viewItem}
-      className=" select-none cursor-pointer w-full  aspect-[3/4] bg-white transition delay-75 duration-300 ease-in-out "
+      className=" select-none cursor-pointer w-full  aspect-[3/4] bg-gray-900 transition delay-75 duration-300 ease-in-out max-w-[400px]"
     >
       <div className="w-full  h-full relative overflow-hidden">
         <Image
-          src={"/cup-cake1.jpg"}
+          src={`/${product.img}`}
           alt={product.id}
           fill
-          sizes="100vw"
+          sizes="100%"
           style={{ objectFit: "cover" }}
         />
         <div className="h-full">
