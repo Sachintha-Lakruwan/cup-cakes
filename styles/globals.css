@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 .glass {
-  background: rgba(255, 255, 255, 0.48);
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.09);
+  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.4px);
-  -webkit-backdrop-filter: blur(5.4px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(3.8px);
+  -webkit-backdrop-filter: blur(3.8px);
 }
 .gradient {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);

@@ -14,7 +14,7 @@ function Layout({ children }) {
     <div
       className={`w-full min-h-screen grid grid-rows-[auto_1fr_auto] ${varela.className} relative`}
     >
-      <Snowfall style={{ zIndex: 55 }} snowflakeCount={300} />
+      {/* <Snowfall style={{ zIndex: 55 }} snowflakeCount={300} /> */}
       <MainNavigation navBar={navBar} setNavBar={setNavBar} />
       <main className="bg-gray-200" onClick={() => setNavBar(false)}>
         {children}

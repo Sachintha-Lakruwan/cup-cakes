@@ -9,8 +9,11 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import LoginPopUp from "../home/LoginPopUp";
+import { useState } from "react";
 
 function MainNavigation({ navBar, setNavBar }) {
+  const [showLogin, setLogin] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);
   const bacground = useTransform(
@@ -19,57 +22,64 @@ function MainNavigation({ navBar, setNavBar }) {
     ["#4ade80", "#facc15"]
   );
   return (
-    <div className=" h-[8vh] sticky top-0 left-0 z-50 shadow-lg bg-white flex justify-center">
-      <div className=" w-full h-[0.35rem] absolute bottom-0 overflow-hidden">
-        <motion.div
-          style={{
-            scaleX: scaleX,
-            background: bacground,
-            transformOrigin: "left",
-          }}
-          className="w-full h-full"
-        />
-      </div>
-      <div className=" flex justify-between items-center w-5/6 sm:w-3/5 lg:w-3/4">
-        <Logo />
-        <div className="lg:hidden" onClick={() => setNavBar((prev) => !prev)}>
-          <MenuRoundedIcon
-            className={`scale-[1.5] ${
-              navBar && "rotate-180"
-            } transition-all ease-in-out duration-300`}
+    <div className="sticky top-0 left-0 z-50 h-[8vh] overflow-visible">
+      <div className=" h-[8vh] shadow-lg bg-white flex justify-center">
+        <div className=" w-full h-[0.5vh] absolute top-[7.5vh] overflow-hidden">
+          <motion.div
+            style={{
+              scaleX: scaleX,
+              background: bacground,
+              transformOrigin: "left",
+            }}
+            className="w-full h-full"
           />
         </div>
-        <AnimatePresence>
-          {navBar && (
-            <motion.div
-              className=" w-5/6 absolute top-[9vh] bg-white flex flex-col gap-4 rounded-md items-center py-9 text-xl shadow-xl sm:w-3/5 lg:hidden"
-              initial={{ opacity: 0, y: -150 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -150 }}
-            >
-              <div>Shop</div>
-              <hr className="w-5/6"></hr>
-              <div>Categories</div>
-              <hr className="w-5/6"></hr>
-              <div>Custom Cake</div>
-              <hr className="w-5/6"></hr>
-              <PersonOutlineRoundedIcon className="scale-125" />
-              <hr className="w-5/6"></hr>
+        <div className=" flex justify-between items-center w-5/6 sm:w-3/5 lg:w-3/4">
+          <Logo />
+          <div className="lg:hidden" onClick={() => setNavBar((prev) => !prev)}>
+            <MenuRoundedIcon
+              className={`scale-[1.5] ${
+                navBar && "rotate-180"
+              } transition-all ease-in-out duration-300`}
+            />
+          </div>
+          <AnimatePresence>
+            {navBar && (
+              <motion.div
+                className=" w-5/6 absolute top-[9vh] bg-white flex flex-col gap-4 rounded-md items-center py-9 text-xl shadow-xl sm:w-3/5 lg:hidden"
+                initial={{ opacity: 0, y: -150 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -150 }}
+              >
+                <div>Shop</div>
+                <hr className="w-5/6"></hr>
+                <div>Categories</div>
+                <hr className="w-5/6"></hr>
+                <div>Custom Cake</div>
+                <hr className="w-5/6"></hr>
+                <PersonOutlineRoundedIcon className="scale-125" />
+                <hr className="w-5/6"></hr>
 
-              <ShoppingCartOutlinedIcon className="scale-125" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <div className="hidden text-lg lg:flex lg:gap-11 tracking-wider">
-          <div>Shop</div>
-          <div>Categories</div>
-          <div>Custom Cake</div>
-        </div>
-        <div className="hidden lg:flex gap-11">
-          <PersonOutlineRoundedIcon className="scale-125" />
-          <ShoppingCartOutlinedIcon className="scale-125" />
+                <ShoppingCartOutlinedIcon className="scale-125" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <div className="hidden text-lg lg:flex lg:gap-11 tracking-wider">
+            <div>Shop</div>
+            <div>Categories</div>
+            <div>Custom Cake</div>
+          </div>
+          <div
+            className="hidden lg:flex gap-11"
+            onClick={() => setLogin((p) => !p)}
+          >
+            <PersonOutlineRoundedIcon className="scale-125" />
+            <ShoppingCartOutlinedIcon className="scale-125" />
+          </div>
         </div>
       </div>
+
+      <AnimatePresence>{showLogin && <LoginPopUp />}</AnimatePresence>
     </div>
   );
 }
