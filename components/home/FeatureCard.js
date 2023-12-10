@@ -9,7 +9,7 @@ function FeatureCard({ index, post }) {
       transition={{ delay: index * 0.2, type: "spring", damping: 7 }}
       className="w-full h-full"
     >
-      <div className="bg-white rounded-md w-full h-[14vh] shadow-md transition-all delay-75 duration-300 ease-in-out hover:shadow-xl lg:h-[16vh] flex justify-evenly">
+      <div className="bg-white rounded-md w-full h-[14vh] shadow-md transition-all delay-75 duration-300 ease-in-out hover:shadow-2xl lg:h-[16vh] flex justify-evenly">
         <div className=" row-span-2 flex justify-center items-center scale-[1.8] text-teal-700">
           <FeaturedIcons type={index} />
         </div>
