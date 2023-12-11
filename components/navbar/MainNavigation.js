@@ -56,7 +56,7 @@ function MainNavigation({ navBar, setNavBar }) {
               >
                 <NavLinks />
                 <hr className="w-5/6"></hr>
-                <PersonOutlineRoundedIcon className="scale-125" />
+                <MobileProfile session={session} />
                 <hr className="w-5/6"></hr>
                 <Link href={"/cart"}>
                   <ShoppingCartOutlinedIcon className="scale-125" />
@@ -127,6 +127,29 @@ function Profile({ session }) {
       <div className=" text-blue-500">
         <p className=" text-xs font-light">Login or</p>
         <p className=" text-xs font-light">Signup</p>
+      </div>
+    </div>
+  );
+}
+function MobileProfile({ session }) {
+  const { showLogin, setLogin } = usePopUp();
+
+  if (session)
+    return (
+      <Link href={"/profile"} className="flex gap-2">
+        <div className="flex items-center">
+          <PersonOutlineRoundedIcon className="scale-125" />
+        </div>
+        <div className=" text-gray-500 flex items-center">
+          <p className=" text-xl font-light">Hello, John</p>
+        </div>
+      </Link>
+    );
+
+  return (
+    <div onClick={() => setLogin(true)} className="flex gap-2 cursor-pointer">
+      <div className=" text-blue-500">
+        <p className=" text-xl font-light flex items-center">Login or Signup</p>
       </div>
     </div>
   );
