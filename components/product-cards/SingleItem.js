@@ -2,17 +2,24 @@ import Image from "next/image";
 import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { usePopUp } from "../layout/Layout";
+import { useSession } from "next-auth/react";
 
 function SingleItem({ product }) {
+  const { data: session } = useSession();
   const router = useRouter();
   function addToCart(e) {
     console.log("added to cart");
     e.stopPropagation();
+    if (!session) {
+      setLogin(true);
+    }
   }
   function viewItem() {
     console.log("view item");
     router.push(`/products/${product.id}`);
   }
+  const { setLogin } = usePopUp();
   return (
     <div
       onClick={viewItem}

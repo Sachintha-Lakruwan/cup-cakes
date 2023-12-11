@@ -1,6 +1,6 @@
 import UnderConstruction from "@/components/UnderConstruction";
 
-function SingleProduct() {
+function CustomCake() {
   return (
     <div>
       <UnderConstruction />
@@ -8,4 +8,4 @@ function SingleProduct() {
   );
 }
 
-export default SingleProduct;
+export default CustomCake;

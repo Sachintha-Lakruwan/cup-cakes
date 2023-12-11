@@ -10,10 +10,13 @@ import {
   useTransform,
 } from "framer-motion";
 import LoginPopUp from "../home/LoginPopUp";
-import { useState } from "react";
+import { usePopUp } from "../layout/Layout";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 function MainNavigation({ navBar, setNavBar }) {
-  const [showLogin, setLogin] = useState(false);
+  const { data: session } = useSession();
+  const { showLogin, setLogin } = usePopUp();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);
   const bacground = useTransform(
@@ -51,30 +54,32 @@ function MainNavigation({ navBar, setNavBar }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -150 }}
               >
-                <div>Shop</div>
-                <hr className="w-5/6"></hr>
-                <div>Categories</div>
-                <hr className="w-5/6"></hr>
-                <div>Custom Cake</div>
+                <NavLinks />
                 <hr className="w-5/6"></hr>
                 <PersonOutlineRoundedIcon className="scale-125" />
                 <hr className="w-5/6"></hr>
-
-                <ShoppingCartOutlinedIcon className="scale-125" />
+                <Link href={"/cart"}>
+                  <ShoppingCartOutlinedIcon className="scale-125" />
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>
           <div className="hidden text-lg lg:flex lg:gap-11 tracking-wider">
-            <div>Shop</div>
-            <div>Categories</div>
-            <div>Custom Cake</div>
+            <div>
+              <Link href={"/shop"}>Shop</Link>
+            </div>
+
+            <div>
+              <Link href={"/custom-cake"}>Custom Cake</Link>
+            </div>
           </div>
-          <div
-            className="hidden lg:flex gap-11"
-            onClick={() => setLogin((p) => !p)}
-          >
-            <PersonOutlineRoundedIcon className="scale-125" />
-            <ShoppingCartOutlinedIcon className="scale-125" />
+          <div className="hidden lg:flex gap-11">
+            <Profile session={session} />
+            <div className="flex items-center">
+              <Link href={"/cart"}>
+                <ShoppingCartOutlinedIcon className="scale-125" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -85,3 +90,44 @@ function MainNavigation({ navBar, setNavBar }) {
 }
 
 export default MainNavigation;
+
+function NavLinks() {
+  return (
+    <>
+      <div>
+        <Link href={"/shop"}>Shop</Link>
+      </div>
+      <hr className="w-5/6"></hr>
+
+      <div>
+        <Link href={"/custom-cake"}>Custom Cake</Link>
+      </div>
+    </>
+  );
+}
+
+function Profile({ session }) {
+  const { showLogin, setLogin } = usePopUp();
+
+  if (session)
+    return (
+      <Link href={"/profile"} className="flex gap-2">
+        <div className="flex items-center">
+          <PersonOutlineRoundedIcon className="scale-125" />
+        </div>
+        <div className=" text-gray-500">
+          <p className=" text-xs font-light">Hello,</p>
+          <p className=" text-xs font-light">John</p>
+        </div>
+      </Link>
+    );
+
+  return (
+    <div onClick={() => setLogin(true)} className="flex gap-2 cursor-pointer">
+      <div className=" text-blue-500">
+        <p className=" text-xs font-light">Login or</p>
+        <p className=" text-xs font-light">Signup</p>
+      </div>
+    </div>
+  );
+}

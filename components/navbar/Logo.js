@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
@@ -5,7 +6,11 @@ const poppins = Poppins({
 });
 
 function Logo() {
-  return <div className={`text-xl ${poppins.className}`}>Cake Craft</div>;
+  return (
+    <div className={`text-xl ${poppins.className}`}>
+      <Link href={"/"}>Cake Craft</Link>
+    </div>
+  );
 }
 
 export default Logo;

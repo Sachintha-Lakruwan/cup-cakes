@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Gradient from "./Gradient";
+import Link from "next/link";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,8 +39,8 @@ function Text() {
       <h2 className={`${poppins.className} text-5xl text-center`}>
         Order your custom cake now!
       </h2>
-      <div className=" py-4 px-7 rounded-full text-xl bg-white text-gray-900 font-bold transition delay-75 duration-300 ease-in-out hover:bg-gray-300 hover:scale-110 md:text-cyan-500">
-        Order Now
+      <div className=" py-4 px-7 rounded-full text-xl bg-white text-gray-900 font-bold transition delay-75 duration-300 ease-in-out hover:bg-gray-200  hover:scale-110 md:text-cyan-500 md:hover:text-cyan-700">
+        <Link href={"/custom-cake"}>Order Now</Link>
       </div>
     </div>
   );

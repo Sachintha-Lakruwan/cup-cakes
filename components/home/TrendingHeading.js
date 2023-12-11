@@ -8,12 +8,12 @@ import Link from "next/link";
 function TrendingHeading({ category, link }) {
   return (
     <div className="justify-center w-full flex md:justify-between">
-      <Link href={"./categories/cup-cakes"}>
+      <Link href={"./shop/cup-cakes"}>
         <h3 className={`${poppins.className}  text-2xl text-gray-800 mb-11`}>
           Trending {category} 🔥
         </h3>
       </Link>
-      <Link href={`./categories/${link}`}>
+      <Link href={`./shop/${link}`}>
         <div
           className={`${poppins.className} text-2xl text-gray-800 mb-11 hidden md:inline-block`}
         >
