@@ -21,14 +21,14 @@ function LoginPopUp() {
     }
   }
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0 }}
-      className=" relative w-full h-[92vh] flex items-center justify-center"
-    >
+    <div className=" relative w-full h-[92vh] flex items-center justify-center">
       <div className="w-full h-full absolute top-0 left-0 z-10 glass" />
-      <div className="relative z-10 flex flex-col items-center justify-center w-96 mx-auto md:h-screen lg:py-0 drop-shadow-2xl">
+      <motion.div
+        className="relative z-10 flex flex-col items-center justify-center w-96 mx-auto md:h-screen lg:py-0 drop-shadow-2xl"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+      >
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -85,8 +85,8 @@ function LoginPopUp() {
             </form>
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
 
