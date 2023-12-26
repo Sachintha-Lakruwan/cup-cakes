@@ -3,6 +3,7 @@ import MainNavigation from "../navbar/MainNavigation";
 import Snowfall from "react-snowfall";
 import { createContext, useContext, useState } from "react";
 import { Varela_Round } from "next/font/google";
+import SmoothScroll from "./SmoothScroll";
 const varela = Varela_Round({
   subsets: ["latin"],
   weight: ["400"],
@@ -15,16 +16,18 @@ function Layout({ children }) {
   const [showLogin, setLogin] = useState(false);
   return (
     <PopUpWindow.Provider value={{ showLogin, setLogin }}>
-      <div
-        className={`w-full min-h-screen grid grid-rows-[auto_1fr_auto] ${varela.className} relative`}
-      >
-        <Snowfall style={{ zIndex: 55 }} snowflakeCount={150} />
-        <MainNavigation navBar={navBar} setNavBar={setNavBar} />
-        <main className="bg-gray-200" onClick={() => setNavBar(false)}>
-          {children}
-        </main>
-        <Footer />
-      </div>
+      <SmoothScroll>
+        <div
+          className={`w-full min-h-screen grid grid-rows-[auto_1fr_auto] ${varela.className} relative`}
+        >
+          <Snowfall style={{ zIndex: 55 }} snowflakeCount={150} />
+          <MainNavigation navBar={navBar} setNavBar={setNavBar} />
+          <main className="bg-gray-200" onClick={() => setNavBar(false)}>
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </SmoothScroll>
     </PopUpWindow.Provider>
   );
 }
